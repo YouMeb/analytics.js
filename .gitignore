@@ -2,3 +2,4 @@ node_modules
 components
 dependencies.mk
 .eslintrc
+analytics.js

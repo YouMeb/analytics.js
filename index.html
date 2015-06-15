@@ -1,0 +1,15 @@
+<html>
+<head>
+  <title>analytics.js</title>
+</head>
+<body>
+  <a href="http://google.com">Google</a>
+  <script src="./analytics.js"></script>
+  <script>
+    var analytics = Analytics({
+      site: 'example'
+    });
+    analytics.trackLink(document.querySelector('a'));
+  </script>
+</body>
+</html>
