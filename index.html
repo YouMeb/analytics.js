@@ -27,6 +27,8 @@
       }
     });
 
+    analytics.use('google-analytics', { trackingID: 'UA-XXXXXXXX-X' });
+
     analytics.trackLink('test', document.querySelector('a'));
 
     analytics.init();

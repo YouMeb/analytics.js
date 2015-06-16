@@ -3,8 +3,11 @@
   "version": "0.0.0",
   "dependencies": {
     "YouMeb/fingerprint": "master",
+    "YouMeb/font-detect": "1.0.0",
+    "YouMeb/analytics.js-google-analytics": "master",
     "component/assert": "0.5.0",
     "component/cookie": "1.1.2",
-    "component/emitter": "1.2.0"
+    "component/emitter": "1.2.0",
+    "visionmedia/debug": "2.2.0"
   }
 }
