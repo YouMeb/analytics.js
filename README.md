@@ -70,6 +70,13 @@ analytics.use({
 * event: `String`
 * links: `Element`/`[Element]`
 
+### .page(pageName, cb)
+
+追蹤 page view
+
+* pageName: `String`
+* cb: `Function`
+
 ### .ready(fn)
 
 使用這個 method 確保所有初始化動作已完成。
