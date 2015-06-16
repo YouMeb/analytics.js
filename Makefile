@@ -5,10 +5,13 @@ TEST := ./test/*.js
 
 include dependencies.mk
 
-build: analytics.js
+build: build/index.js
 
-analytics.js: $(SRC)
-	@duo -s Analytics -S index.js > $@
+build/index.js: node_modules $(SRC)
+	@duo -s Analytics index.js
+
+node_modules:
+	@npm i
 
 lint: eslint
 
