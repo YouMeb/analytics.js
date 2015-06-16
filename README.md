@@ -7,7 +7,12 @@ urAD 追蹤程式碼
 var analytics = Analytics({
   site: 'example'
 });
-analytics.trackLink('test', document.querySelector('a'));
+
+analytics.init();
+
+analytics.ready(function () {
+  analytics.track('test', 'abc');
+});
 ```
 
 ## API
@@ -40,6 +45,10 @@ analytics.use({
 
 * event: `String`
 * links: `Element`/`[Element]`
+
+### .ready(fn)
+
+使用這個 method 確保所有初始化動作已完成。
 
 ## 開發
 
