@@ -7,9 +7,29 @@
   <script src="./build/index.js"></script>
   <script>
     var analytics = Analytics({
+      debug: true,
       site: 'example'
     });
+
+    analytics.use({
+      name: 'test',
+      init: function (analytics, cb) {
+        setTimeout(cb , 1000);
+      }
+    });
+
+    analytics.use({
+      name: 'test2',
+      init: function (analytics, cb) {
+        setTimeout(function () {
+          cb(new Error('test2'));
+        } , 100);
+      }
+    });
+
     analytics.trackLink('test', document.querySelector('a'));
+
+    analytics.init();
   </script>
 </body>
 </html>
