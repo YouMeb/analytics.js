@@ -3,16 +3,40 @@ analytics.js
 
 urAD 追蹤程式碼
 
+* [快速上手](#快速上手)
+* [API](#api)
+* [開發](#開發)
+
+## 快速上手
+
+### 基本安裝
+
 ```javascript
-var analytics = Analytics({
-  site: 'example'
-});
+var analytics = Analytics({ site: '網站ID，由 urAD 產生' });
 
 analytics.init();
 
 analytics.ready(function () {
-  analytics.track('test', 'abc');
+  // ...
 });
+```
+
+### 使用 Plugin
+
+```javascript
+var analytics = Analytics({ site: '...' })
+  .use('google-analytics', { trackingID: 'UA-XXXXXXXX-X' })
+  .init();
+
+analytics.ready(function () {
+  // ...  
+});
+```
+
+### 送出追蹤資料
+
+```javascript
+analytics.track('事件名稱', '事件資料');
 ```
 
 ## API
@@ -49,6 +73,10 @@ analytics.use({
 ### .ready(fn)
 
 使用這個 method 確保所有初始化動作已完成。
+
+## Plugins
+
+* google-analytics: [YouMeb/analytics.js-google-analytics](https://github.com/YouMeb/analytics.js-google-analytics)
 
 ## 開發
 
