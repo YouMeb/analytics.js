@@ -91,6 +91,12 @@ analytics.use({
 $ git clone git@github.com:YouMeb/analytics.js.git
 ```
 
+安裝開發中使用的工具
+
+```bash
+$ npm i
+```
+
 產生 standalone 檔案
 
 ```bash
