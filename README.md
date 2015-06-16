@@ -17,7 +17,7 @@ analytics.trackLink('test', document.querySelector('a'));
 ```javascript
 analytics.use({
   name: 'test',
-  init: function (analytics) {
+  init: function (analytics, cb) {
     // ...
   }
 });
