@@ -19,4 +19,4 @@ test:
 	@$(MOCHA) $(TEST)
 
 clean:
-	@- rm -rf components analytics.js
+	@- rm -rf components build
