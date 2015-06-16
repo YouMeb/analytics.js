@@ -15,8 +15,11 @@ analytics.trackLink('test', document.querySelector('a'));
 ### .use(plugin)
 
 ```javascript
-analytics.use(function (analytics) {
-  // ...
+analytics.use({
+  name: 'test',
+  init: function (analytics) {
+    // ...
+  }
 });
 ```
 
