@@ -12,6 +12,14 @@ analytics.trackLink('test', document.querySelector('a'));
 
 ## API
 
+### .use(plugin)
+
+```javascript
+analytics.use(function (analytics) {
+  // ...
+});
+```
+
 ### .track(event, value, cb)
 
 * event: `String`
