@@ -1,7 +1,6 @@
 BIN := node_modules/.bin
-MOCHA := $(BIN)/mocha
+DUO := $(BIN)/duo
 SRC := $(shell find lib/ -type f -name '*.js')
-TEST := ./test/*.js
 
 include dependencies.mk
 
@@ -14,9 +13,6 @@ node_modules:
 	@npm i
 
 lint: eslint
-
-test: 
-	@$(MOCHA) $(TEST)
 
 clean:
 	@- rm -rf components build
