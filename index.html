@@ -28,10 +28,12 @@
     });
 
     analytics.use('google-analytics', { trackingID: 'UA-XXXXXXXX-X' });
-
-    analytics.trackLink('test', document.querySelector('a'));
-
+    analytics.use('anonymous', { endpoint: 'http://localhost:3000/beacon' });
     analytics.init();
+
+    analytics.ready(function () {
+      analytics.trackLink('test', document.querySelector('a'));
+    });
   </script>
 </body>
 </html>
