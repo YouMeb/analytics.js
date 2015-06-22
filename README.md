@@ -41,7 +41,9 @@ analytics.track('事件名稱', '事件資料');
 
 ## API
 
-### .use(plugin)
+### Analytics
+
+#### .use(plugin)
 
 ```javascript
 analytics.use({
@@ -52,34 +54,52 @@ analytics.use({
 });
 ```
 
-### .track(event, value, cb)
+#### .track(event, value, cb)
 
 * event: `String`
 * value: `String`/`Object`/`Array`
 * cb: `Function`
 
-### .trackEvent(event, target, targetEvent, valueGatter, cb)
+#### .trackEvent(event, target, targetEvent, valueGatter, cb)
 
 * event: `String`
 * target: `Element`/`EventEmitter`
 * valueGatter: `Function` 回傳真正要傳給 Server 的資料，這邊可以取得的參數跟 Event Handler 取得的資料完全相同。
 * cb: `Function`
 
-### .trackLink(event, links)
+#### .trackLink(event, links)
 
 * event: `String`
 * links: `Element`/`[Element]`
 
-### .page(pageName, cb)
+#### .page(pageName, cb)
 
 追蹤 page view
 
 * pageName: `String`
 * cb: `Function`
 
-### .ready(fn)
+#### .ready(fn)
 
 使用這個 method 確保所有初始化動作已完成。
+
+## TrackingEvent
+
+### .fulltype
+
+完整 type 名稱
+
+### .value
+
+需要傳給 Server 的資料
+
+### .getType()
+
+取得 `.fulltype` 第一個 `:` 後的名稱。假設 `.fulltype` 是 `'ec:addProduct'`，那 `.getType()` 會傳`'addProduct'`
+
+### .getCategory()
+
+取得 `.fulltype` 第一個 `:` 前的名稱。假設 `.fulltype` 是 `'ec:addProduct'`，那 `.getCategory()` 會傳`'ec'`
 
 ## Plugins
 
