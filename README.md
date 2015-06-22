@@ -83,21 +83,21 @@ analytics.use({
 
 使用這個 method 確保所有初始化動作已完成。
 
-## TrackingEvent
+### TrackingEvent
 
-### .fulltype
+#### .fulltype
 
 完整 type 名稱
 
-### .value
+#### .value
 
 需要傳給 Server 的資料
 
-### .getType()
+#### .getType()
 
 取得 `.fulltype` 第一個 `:` 後的名稱。假設 `.fulltype` 是 `'ec:addProduct'`，那 `.getType()` 會傳`'addProduct'`
 
-### .getCategory()
+#### .getCategory()
 
 取得 `.fulltype` 第一個 `:` 前的名稱。假設 `.fulltype` 是 `'ec:addProduct'`，那 `.getCategory()` 會傳`'ec'`
 
