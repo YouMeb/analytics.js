@@ -27,7 +27,7 @@ lint: eslint
 # 所以我們要把所有包含測試的檔案都要加入到 entry point 內
 test/index.js: $(TEST_SRC)
 	@-rm $@
-	@touch $@
+	@echo "require('./settings');" > $@
 	@for fname in $(TEST_SRC); do \
 		echo "require('./$${fname#test*/}');" >> $@; \
 	done
@@ -69,10 +69,7 @@ test-safari: build/test/index.js
 		karma/local.conf.js
 
 test-sauce: build/test/index.js
-	#@SAUCE_BROWSER=chrome $(KARMA) start karma/sauce.conf.js
-	#@SAUCE_BROWSER=firefox $(KARMA) start karma/sauce.conf.js
-	#@T_BROWSER=ios $(KARMA) start karma/sauce.conf.js
-	@T_BROWSER=ie $(KARMA) start karma/sauce.conf.js
+	@$(KARMA) start karma/sauce.conf.js
 
 # 清理自動產生的檔案、目錄
 clean:

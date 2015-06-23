@@ -1,6 +1,7 @@
 'use strict';
 
 var Emitter = require('component/emitter');
+var fireEvent = require('./fire-event');
 var TrackingEventTarget = require('../lib/tracking-event-target');
 
 describe('TrackingEventTarget', function () {
@@ -36,14 +37,3 @@ describe('TrackingEventTarget', function () {
     });
   });
 });
-
-function fireEvent(el, eventType){
-  if( document.createEvent ) {
-    var event = document.createEvent('MouseEvents');
-    event.initEvent(eventType, true, false);
-    el.dispatchEvent(event);
-  } else if(document.createEventObject) {
-    var event = document.createEventObject();
-    el.fireEvent('on' + eventType, event);
-  }
-}
