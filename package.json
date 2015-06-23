@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "install": "make build",
-    "test": "make test"
+    "test": "make test-sauce"
   },
   "author": "Po-Ying Chen <poying.me@gmail.com> (陳柏穎)",
   "license": "MIT",
