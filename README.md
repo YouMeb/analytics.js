@@ -1,4 +1,4 @@
-analytics.js
+analytics.js [![build](https://img.shields.io/travis/YouMeb/analytics.js.svg)](https://travis-ci.org/YouMeb/analytics.js)
 ============
 
 urAD 追蹤程式碼
