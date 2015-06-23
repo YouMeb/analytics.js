@@ -11,6 +11,16 @@
   "license": "MIT",
   "devDependencies": {
     "duo": "^0.12.1",
+    "karma": "^0.12.36",
+    "karma-chrome-launcher": "^0.1.12",
+    "karma-expect": "^1.1.0",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-mocha": "^0.1.10",
+    "karma-opera-launcher": "^0.1.0",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "karma-safari-launcher": "^0.1.1",
+    "karma-sauce-launcher": "^0.2.11",
+    "phantomjs": "^1.9.17",
     "urad-make-eslint": "^2.1.0"
   }
 }

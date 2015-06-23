@@ -3,3 +3,4 @@ node_modules
 components
 dependencies.mk
 .eslintrc
+test/index.js
