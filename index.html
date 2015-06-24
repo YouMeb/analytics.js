@@ -3,7 +3,8 @@
   <title>analytics.js</title>
 </head>
 <body>
-  <a href="http://google.com">Google</a>
+  <a id="link" href="http://google.com">Google</a>
+  <script src="./node_modules/json3/lib/json3.js"></script>
   <script src="./build/index.js"></script>
   <script>
     var analytics = Analytics({
@@ -32,7 +33,7 @@
     analytics.init();
 
     analytics.ready(function () {
-      analytics.trackLink('test', document.querySelector('a'));
+      analytics.trackLink('test', document.getElementById('link'));
     });
   </script>
 </body>
