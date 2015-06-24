@@ -15,6 +15,7 @@ module.exports = function (config) {
     ],
 
     files: [
+      '../node_modules/json3/lib/json3.js',
       '../build/test/index.js'
     ],
 
