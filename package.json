@@ -10,8 +10,7 @@
     "lint": "make eslint"
   },
   "pre-commit": [
-    "lint",
-    "test-local"
+    "lint"
   ],
   "author": "Po-Ying Chen <poying.me@gmail.com> (陳柏穎)",
   "license": "MIT",
