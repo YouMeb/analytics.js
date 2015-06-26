@@ -70,7 +70,7 @@ describe('Analytics', function () {
         setTimeout(function () {
           var err;
           try {
-            expect(executed).to.be.false;
+            expect(executed).to.equal(false);
           } catch (e) {
             err = e;
           }
