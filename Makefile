@@ -10,10 +10,10 @@ include dependencies.mk
 build: build/index.js
 
 build/index.js: node_modules $(SRC)
-	@duo -s Analytics index.js
+	@$(DUO) -s Analytics index.js
 
 build/test/index.js: node_modules test/index.js $(SRC) $(TEST)
-	@duo -s Analytics test/index.js
+	@$(DUO) -s Analytics test/index.js
 
 node_modules:
 	@npm i
