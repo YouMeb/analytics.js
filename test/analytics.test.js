@@ -1,5 +1,6 @@
 'use strict';
 
+var each = require('component/each');
 var Emitter = require('component/emitter');
 var fireEvent = require('./fire-event');
 var Analytics = require('../lib/analytics');
@@ -42,6 +43,7 @@ describe('Analytics', function () {
   describe('#track', function () {
     it('should emit `track` event', function (cb) {
       var analytics = Analytics(options);
+      analytics._ready = true;
       analytics.on('track', function () {
         cb();
       });
@@ -50,10 +52,31 @@ describe('Analytics', function () {
 
     it('should emit `track:[event type]` event', function (cb) {
       var analytics = Analytics(options);
+      analytics._ready = true;
       analytics.on('track:test', function () {
         cb();
       });
       analytics.track('test', 'test');
+    });
+
+    describe('when analytics is not initialized', function () {
+      it('should not be executed', function (cb) {
+        var analytics = Analytics(options);
+        var executed = false;
+        analytics.on('track:test', function () {
+          executed = true;
+        });
+        analytics.track('test', 'test');
+        setTimeout(function () {
+          var err;
+          try {
+            expect(executed).to.be.false;
+          } catch (e) {
+            err = e;
+          }
+          cb(err);
+        }, 500);
+      });
     });
   });
 
@@ -72,6 +95,7 @@ describe('Analytics', function () {
 
       it('should work', function (cb) {
         var analytics = Analytics(options);
+        analytics._ready = true;
         analytics.on('track:test', function () {
           cb();
         });
@@ -84,6 +108,7 @@ describe('Analytics', function () {
       it('should work', function (cb) {
         var emitter = Emitter({});
         var analytics = Analytics(options);
+        analytics._ready = true;
         analytics.on('track:test', function () {
           cb();
         });
@@ -109,6 +134,7 @@ describe('Analytics', function () {
 
       it('should work', function (cb) {
         var analytics = Analytics(options);
+        analytics._ready = true;
         analytics.trackLink('test', a);
         analytics.on('track:test', function () {
           cb();
@@ -118,6 +144,7 @@ describe('Analytics', function () {
 
       it('should pass extra information of element to event handler', function (cb) {
         var analytics = Analytics(options);
+        analytics._ready = true;
         analytics.trackLink('test', a);
         analytics.on('track:test', function (event) {
           var err;
@@ -165,6 +192,7 @@ describe('Analytics', function () {
       it('should work', function (cb) {
         var counter = 0;
         var analytics = Analytics(options);
+        analytics._ready = true;
         analytics.trackLink('test', container.children);
         analytics.on('track:test', function () {
           if (++counter === 2) {
@@ -174,6 +202,43 @@ describe('Analytics', function () {
         fireEvent(a, 'click');
         fireEvent(b, 'click');
       });
+    });
+  });
+
+  describe('#ready', function () {
+    it('should execute all tracking actions which are executed before analytics is ready', function (cb) {
+      var err;
+      var counter = 0;
+      var analytics = Analytics(options);
+      var values = [
+        { a: 'b' },
+        { c: 'd' }
+      ];
+
+      each(values, function (value, index) {
+        value.index = index;
+        analytics.track('test', value);
+      });
+
+      analytics.track = function (event, value) {
+        counter++;
+        try {
+          expect(value).to.eql(values[value.index]);
+        } catch (e) {
+          err = e;
+        }
+      };
+
+      analytics.ready(function () {
+        try {
+          expect(counter).to.equal(2);
+        } catch (e) {
+          err = e;
+        }
+        cb(err);
+      });
+
+      analytics.init();
     });
   });
 });
