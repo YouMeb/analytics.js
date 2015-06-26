@@ -26,6 +26,7 @@
     "karma-phantomjs-launcher": "^0.2.0",
     "karma-safari-launcher": "^0.1.1",
     "karma-sauce-launcher": "^0.2.11",
+    "markdox": "^0.1.9",
     "phantomjs": "^1.9.17",
     "pre-commit": "^1.0.10",
     "urad-make-eslint": "^2.2.0"
