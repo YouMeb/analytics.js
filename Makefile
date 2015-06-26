@@ -28,6 +28,16 @@ $(DOCS): docs/%.md: lib/%.js
 	@-mkdir -p $$(dirname $@)
 	$(DOX) --output $@ $<
 
+ifeq ($(TRAVIS_BRANCH), master)
+# master 的時候跑 saucelabs
+# 檢查是不是所有指定 browser 都可以通過測試
+travis: test-sauce
+else
+# 其他 branch 只跑 phantom
+# 避免 saucelabs 噴錢...
+travis: test-phantomjs
+endif
+
 # 產生 entry point
 #
 # duojs 需要有個 entry point，

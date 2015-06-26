@@ -3,9 +3,7 @@ language: node_js
 node_js:
   - 'iojs'
 
-branches:
-  only:
-    - master
+script: make travis
 
 env:
   global:

@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "install": "make build",
-    "test": "make test-sauce",
+    "test": "make test-phantomjs",
     "test-local": "make test-chrome",
     "lint": "make eslint"
   },
