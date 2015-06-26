@@ -5,3 +5,4 @@ components
 dependencies.mk
 .eslintrc
 test/index.js
+.DS_Store
