@@ -1,24 +1,32 @@
 BIN := node_modules/.bin
 DUO := $(BIN)/duo
+DOX := $(BIN)/markdox
 KARMA := $(BIN)/karma
 SRC := $(shell find lib -type f -name '*.js')
 TEST := $(shell find test -type f -name '*.js')
 TEST_SRC := $(shell find test -type f -name '*.test.js')
+DOCS := $(SRC:lib/%.js=docs/%.md)
 
 include dependencies.mk
 
 build: build/index.js
 
 build/index.js: node_modules $(SRC)
-	@duo -s Analytics index.js
+	@$(DUO) -s Analytics index.js
 
 build/test/index.js: node_modules test/index.js $(SRC) $(TEST)
-	@duo -s Analytics test/index.js
+	@$(DUO) -s Analytics test/index.js
 
 node_modules:
 	@npm i
 
 lint: eslint
+
+docs: $(DOCS)
+
+$(DOCS): docs/%.md: lib/%.js
+	@-mkdir -p $$(dirname $@)
+	$(DOX) --output $@ $<
 
 # 產生 entry point
 #
@@ -73,4 +81,4 @@ test-sauce: build/test/index.js
 
 # 清理自動產生的檔案、目錄
 clean:
-	@- rm -rf components build test/index.js
+	@- rm -rf docs components build test/index.js

@@ -11,7 +11,7 @@ describe('User', function () {
             return 'test';
           }
         });
-        expect(user.siteUID()).to.equal('test');
+        expect(user.getSiteUID()).to.equal('test');
       });
     });
   });
@@ -22,7 +22,7 @@ describe('User', function () {
         var user = User({
           siteUID: 'abc'
         });
-        expect(user.siteUID()).to.equal('abc');
+        expect(user.getSiteUID()).to.equal('abc');
       });
     });
   });

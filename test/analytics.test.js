@@ -119,10 +119,10 @@ describe('Analytics', function () {
       it('should pass extra information of element to event handler', function (cb) {
         var analytics = Analytics(options);
         analytics.trackLink('test', a);
-        analytics.on('track:test', function (data) {
+        analytics.on('track:test', function (event) {
           var err;
           try {
-            expect(data.value.value).to.eql({
+            expect(event.value).to.eql({
               href: null,
               title: 'Google'
             });

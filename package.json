@@ -5,12 +5,18 @@
   "main": "build/index.js",
   "scripts": {
     "install": "make build",
-    "test": "make test-sauce"
+    "test": "make test-sauce",
+    "test-local": "make test-chrome",
+    "lint": "make eslint"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "author": "Po-Ying Chen <poying.me@gmail.com> (陳柏穎)",
   "license": "MIT",
   "devDependencies": {
     "duo": "^0.12.1",
+    "json3": "^3.3.2",
     "karma": "^0.12.36",
     "karma-chrome-launcher": "^0.1.12",
     "karma-expect": "^1.1.0",
@@ -20,7 +26,9 @@
     "karma-phantomjs-launcher": "^0.2.0",
     "karma-safari-launcher": "^0.1.1",
     "karma-sauce-launcher": "^0.2.11",
+    "markdox": "^0.1.9",
     "phantomjs": "^1.9.17",
-    "urad-make-eslint": "^2.1.0"
+    "pre-commit": "^1.0.10",
+    "urad-make-eslint": "^2.2.0"
   }
 }

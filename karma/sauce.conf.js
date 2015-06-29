@@ -65,6 +65,7 @@ module.exports = function (config) {
     singleRun: true,
 
     files: [
+      '../node_modules/json3/lib/json3.js',
       '../build/test/index.js'
     ]
   });
