@@ -150,7 +150,7 @@ describe('Analytics', function () {
           var err;
           try {
             expect(event.value).to.eql({
-              href: null,
+              href: '',
               title: 'Google'
             });
           } catch (e) {
