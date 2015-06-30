@@ -43,7 +43,7 @@ analytics.track('事件名稱', '事件資料');
 
 ## Plugins
 
-* google-analytics: [YouMeb/analytics.js-google-analytics](https://github.com/YouMeb/analytics.js-google-analytics)
+[wiki/Plugins](https://github.com/YouMeb/analytics.js/wiki/Plugins)
 
 ## 開發
 
