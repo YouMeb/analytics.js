@@ -30,7 +30,13 @@
 
     analytics.use('google-analytics', { trackingID: 'UA-XXXXXXXX-X' });
     analytics.use('anonymous', { endpoint: 'http://localhost:3000/beacon' });
+    analytics.use('campaign', {
+      events: {
+        '^/$': 'home'
+      }
+    });
     analytics.init();
+    analytics.page();
 
     analytics.ready(function () {
       analytics.trackLink('test', document.getElementById('link'));
