@@ -28,8 +28,8 @@ $(DOCS): docs/%.md: lib/%.js
 	@-mkdir -p $$(dirname $@)
 	$(DOX) --output $@ $<
 
-ifeq ($(TRAVIS_BRANCH), master)
-# master 的時候跑 saucelabs
+ifeq ($(TRAVIS_BRANCH), $(filter $(TRAVIS_BRANCH), master development))
+# master/development 的時候跑 saucelabs
 # 檢查是不是所有指定 browser 都可以通過測試
 travis: test-sauce
 else
