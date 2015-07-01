@@ -90,7 +90,7 @@ describe('Analytics', function () {
       });
 
       after(function () {
-        a.parentElement.removeChild(a);
+        document.body.removeChild(a);
       });
 
       it('should work', function (cb) {
@@ -129,7 +129,7 @@ describe('Analytics', function () {
       });
 
       after(function () {
-        a.parentElement.removeChild(a);
+        document.body.removeChild(a);
       });
 
       it('should work', function (cb) {
@@ -186,7 +186,7 @@ describe('Analytics', function () {
       });
 
       after(function () {
-        container.parentElement.removeChild(container);
+        document.body.removeChild(container);
       });
 
       it('should work', function (cb) {
