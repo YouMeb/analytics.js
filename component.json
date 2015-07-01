@@ -1,6 +1,6 @@
 {
   "name": "analytics.js",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "dependencies": {
     "YouMeb/analytics.js-anonymous": "1.0.0",
     "YouMeb/analytics.js-campaign": "1.0.0",
