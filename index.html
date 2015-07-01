@@ -28,6 +28,15 @@
       }
     });
 
+    analytics.use('user-info', {
+      init: function (user, cb) {
+        console.log(user);
+        user.setSiteUID('poying');
+        user.set('realname', 'Po-Ying Chen');
+        cb();
+      }
+    });
+
     analytics.use('google-analytics', { trackingID: 'UA-XXXXXXXX-X' });
     analytics.use('anonymous', { endpoint: 'http://localhost:3000/beacon' });
     analytics.use('campaign', {
