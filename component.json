@@ -6,7 +6,7 @@
     "YouMeb/analytics.js-campaign": "1.0.0",
     "YouMeb/analytics.js-google-analytics": "1.0.0",
     "YouMeb/analytics.js-user-info": "1.0.0",
-    "YouMeb/fingerprint": "master",
+    "YouMeb/fingerprint": "e4e00f1a95a1fde73dc6c15967a8681ab6aab495",
     "YouMeb/font-detect": "1.0.2",
     "YouMeb/object-keys": "1.0.0",
     "component/assert": "0.5.0",
@@ -25,7 +25,7 @@
     "component/type": "1.0.0",
     "jkroso/equals": "1.0.0",
     "jkroso/type": "1.1.0",
-    "karanlyons/murmurHash3.js": "master",
+    "karanlyons/murmurHash3.js": "3386bd2ecd39c16506b2cfe0f3bb5e1739d235c6",
     "rauchg/ms.js": "0.7.1",
     "visionmedia/debug": "2.2.0",
     "yields/fmt": "0.0.2"
