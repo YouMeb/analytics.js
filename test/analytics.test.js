@@ -230,12 +230,14 @@ describe('Analytics', function () {
       };
 
       analytics.ready(function () {
-        try {
-          expect(counter).to.equal(2);
-        } catch (e) {
-          err = e;
-        }
-        cb(err);
+        setTimeout(function () {
+          try {
+            expect(counter).to.equal(2);
+          } catch (e) {
+            err = e;
+          }
+          cb(err);
+        }, 100);
       });
 
       analytics.init();
