@@ -29,6 +29,7 @@
     "markdox": "^0.1.9",
     "phantomjs": "^1.9.17",
     "pre-commit": "^1.0.10",
+    "uglify-js": "^2.4.23",
     "urad-make-eslint": "^2.2.0"
   }
 }

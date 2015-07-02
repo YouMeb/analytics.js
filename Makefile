@@ -1,7 +1,9 @@
+VERSION := $(shell node -e "var pkg = require('./package'); console.log(pkg.version);")
 BIN := node_modules/.bin
 DUO := $(BIN)/duo
 DOX := $(BIN)/markdox
 KARMA := $(BIN)/karma
+UGLIFY := $(BIN)/uglifyjs
 SRC := $(shell find lib -type f -name '*.js')
 TEST := $(shell find test -type f -name '*.js')
 TEST_SRC := $(shell find test -type f -name '*.test.js')
@@ -9,10 +11,18 @@ DOCS := $(SRC:lib/%.js=docs/%.md)
 
 include dependencies.mk
 
-build: build/index.js
+build: build/index.min.js
+
+release: clean build
+	@aws s3 cp \
+		build/index.min.js s3://urad-tracking/release-$(VERSION).js \
+		--grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
 
 build/index.js: node_modules $(SRC)
 	@$(DUO) -s Analytics index.js
+
+build/index.min.js: build/index.js
+	@$(UGLIFY) $< > $@
 
 build/test/index.js: node_modules test/index.js $(SRC) $(TEST)
 	@$(DUO) -s Analytics test/index.js
