@@ -13,7 +13,6 @@
     "lint"
   ],
   "author": "Po-Ying Chen <poying.me@gmail.com> (陳柏穎)",
-  "license": "MIT",
   "devDependencies": {
     "duo": "^0.12.1",
     "json3": "^3.3.2",
