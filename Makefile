@@ -1,42 +1,50 @@
 VERSION := $(shell node -e "var pkg = require('./package'); console.log(pkg.version);")
+
+#
+# Binaries.
+#
+
 BIN := node_modules/.bin
 DUO := $(BIN)/duo
 DOX := $(BIN)/markdox
 KARMA := $(BIN)/karma
 UGLIFY := $(BIN)/uglifyjs
+
+#
+# Files.
+#
+
 SRC := $(shell find lib -type f -name '*.js')
 TEST := $(shell find test -type f -name '*.js')
 TEST_SRC := $(shell find test -type f -name '*.test.js')
 DOCS := $(SRC:lib/%.js=docs/%.md)
 
+#
+# Main task.
+#
+
+all: clean lint build
+
+#
+# Dependencies.
+#
+
 include dependencies.mk
 
+#
+# Helper tasks.
+#
+
 build: build/index.min.js
-
-release: clean build
-	@aws s3 cp \
-		build/index.min.js s3://urad-tracking/release-$(VERSION).js \
-		--grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
-
-build/index.js: node_modules $(SRC)
-	@$(DUO) -s Analytics index.js
-
-build/index.min.js: build/index.js
-	@$(UGLIFY) $< > $@
-
-build/test/index.js: node_modules test/index.js $(SRC) $(TEST)
-	@$(DUO) -s Analytics test/index.js
-
-node_modules:
-	@npm i
 
 lint: eslint
 
 docs: $(DOCS)
 
-$(DOCS): docs/%.md: lib/%.js
-	@-mkdir -p $$(dirname $@)
-	$(DOX) --output $@ $<
+release: clean build
+	@aws s3 cp \
+		build/index.min.js s3://urad-tracking/release-$(VERSION).js \
+		--grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
 
 ifeq ($(TRAVIS_BRANCH), $(filter $(TRAVIS_BRANCH), master development))
 # master/development 的時候跑 saucelabs
@@ -47,6 +55,31 @@ else
 # 避免 saucelabs 噴錢...
 travis: test-phantomjs
 endif
+
+#
+# Build tasks.
+#
+
+build/index.js: node_modules $(SRC)
+	@$(DUO) -s Analytics index.js
+
+build/index.min.js: build/index.js
+	@$(UGLIFY) $< > $@
+
+build/test/index.js: node_modules test/index.js $(SRC) $(TEST)
+	@$(DUO) -s Analytics test/index.js
+
+#
+# Docs tasks.
+#
+
+$(DOCS): docs/%.md: lib/%.js
+	@-mkdir -p $$(dirname $@)
+	$(DOX) --output $@ $<
+
+#
+# Tests tasks.
+#
 
 # 產生 entry point
 #
@@ -98,6 +131,13 @@ test-safari: build/test/index.js
 
 test-sauce: build/test/index.js
 	@$(KARMA) start karma/sauce.conf.js
+
+#
+# Chore tasks.
+#
+
+node_modules:
+	@npm i
 
 # 清理自動產生的檔案、目錄
 clean:
