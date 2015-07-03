@@ -1,14 +1,16 @@
 {
   "name": "analytics.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "dependencies": {
     "YouMeb/analytics.js-anonymous": "1.0.1",
     "YouMeb/analytics.js-campaign": "1.0.0",
     "YouMeb/analytics.js-google-analytics": "1.0.0",
     "YouMeb/analytics.js-user-info": "1.0.0",
+    "YouMeb/filter": "1.0.0",
     "YouMeb/fingerprint": "e4e00f1a95a1fde73dc6c15967a8681ab6aab495",
     "YouMeb/font-detect": "1.0.2",
     "YouMeb/object-keys": "1.0.0",
+    "YouMeb/paramtype": "1.0.1",
     "component/assert": "0.5.0",
     "component/bind": "1.0.0",
     "component/cookie": "1.1.2",

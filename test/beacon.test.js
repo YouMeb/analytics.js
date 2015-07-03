@@ -28,6 +28,16 @@ describe('Beacon', function () {
         e: 'j%3A%5B%22f%22%2C%22g%22%5D'
       });
     });
+
+    it('should get a url without empty parameter', function () {
+      var endpoint = 'http://localhost';
+      var url = Beacon()
+        .endpoint(endpoint)
+        .set('a', undefined)
+        .getURL();
+      var query = extractQuery(url);
+      expect(query).to.eql({});
+    });
   });
 
   describe('#get', function () {
@@ -59,10 +69,12 @@ function extractQuery(url) {
   a.href = url;
   var parts = a.search.substr(1).split('&');
   each(parts, function (keyval) {
-    var parsed = keyval.split('=');
-    var key = parsed.shift();
-    var val = parsed.join('=');
-    query[key] = val;
+    if (keyval) {
+      var parsed = keyval.split('=');
+      var key = parsed.shift();
+      var val = parsed.join('=');
+      query[key] = val;
+    }
   });
   return query;
 }
