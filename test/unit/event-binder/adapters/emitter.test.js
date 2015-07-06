@@ -24,7 +24,9 @@ describe('EmitterAdapter', function () {
       adapter.bind('test', handler);
       adapter.unbind('test', handler);
       emitter.emit('test');
-      setTimeout(cb, 500);
+      setTimeout(function () {
+        cb();
+      }, 500);
     });
   });
 });
