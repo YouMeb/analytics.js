@@ -1,6 +1,6 @@
 'use strict';
 
-var User = require('../lib/user');
+var User = require('../../lib/user');
 
 describe('User', function () {
   describe('#getSiteUID', function () {

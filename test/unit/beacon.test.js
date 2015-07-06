@@ -1,7 +1,7 @@
 'use strict';
 
 var each = require('component/each');
-var Beacon = require('../lib/beacon');
+var Beacon = require('../../lib/beacon');
 
 describe('Beacon', function () {
   describe('#getURL', function () {
