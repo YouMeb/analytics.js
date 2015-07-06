@@ -15,7 +15,7 @@
   "author": "Po-Ying Chen <poying.me@gmail.com> (陳柏穎)",
   "devDependencies": {
     "duo": "^0.12.1",
-    "jquery": "^2.1.4",
+    "jquery": "^1.11.3",
     "json3": "^3.3.2",
     "karma": "^0.12.36",
     "karma-chrome-launcher": "^0.1.12",

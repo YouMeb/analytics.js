@@ -23,7 +23,9 @@ describe('JQueryElementAdapter', function () {
       adapter.bind('click', listener);
       adapter.unbind('click', listener);
       el.trigger('click');
-      setTimeout(cb, 500);
+      setTimeout(function () {
+        cb();
+      }, 500);
     });
   });
 });
