@@ -2,8 +2,8 @@
 
 var each = require('component/each');
 var Emitter = require('component/emitter');
-var fireEvent = require('./fire-event');
-var Analytics = require('../lib/analytics');
+var fireEvent = require('../fire-event');
+var Analytics = require('../../lib/analytics');
 var options = {
   site: 'test',
   endpoint: 'http://localhost:3333'

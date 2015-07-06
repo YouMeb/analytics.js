@@ -16,6 +16,7 @@ module.exports = function (config) {
 
     files: [
       '../node_modules/json3/lib/json3.js',
+      '../node_modules/jquery/dist/jquery.js',
       '../build/test/index.js'
     ],
 
