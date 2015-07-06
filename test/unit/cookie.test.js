@@ -1,6 +1,6 @@
 'use strict';
 
-var Cookie = require('../lib/cookie');
+var Cookie = require('../../lib/cookie');
 
 describe('Cookie', function () {
   beforeEach(function () {

@@ -9,7 +9,8 @@
   <script>
     var analytics = Analytics({
       debug: true,
-      site: 'example'
+      site: 'example',
+      endpoint: 'http://localhost:3000/log'
     });
 
     analytics.use({
@@ -33,8 +34,12 @@
         console.log(user);
         user.setSiteUID('poying');
         user.set('realname', 'Po-Ying Chen');
+        user.set('tid', '93857274');
+        user.set('cid', '1338883');
+        user.set('sid', 'GG 又 QQ');
         cb();
-      }
+      },
+      endpoint: 'http://localhost:3000/user'
     });
 
     analytics.use('google-analytics', { trackingID: 'UA-XXXXXXXX-X' });
