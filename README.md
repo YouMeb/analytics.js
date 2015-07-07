@@ -1,7 +1,9 @@
 analytics.js
 ============
 
-<a href="https://travis-ci.org/YouMeb/analytics.js"><img style="vertical-align: middle" src="https://img.shields.io/travis/YouMeb/analytics.js/master.svg" /></a> `master` <a href="https://travis-ci.org/YouMeb/analytics.js"><img style="vertical-align: middle" src="https://img.shields.io/travis/YouMeb/analytics.js/development.svg" /></a> `development`
+[![build](https://img.shields.io/travis/YouMeb/analytics.js/master.svg)](https://travis-ci.org/YouMeb/analytics.js) [![Coverage Status](https://img.shields.io/coveralls/YouMeb/analytics.js/master.svg)](https://coveralls.io/r/YouMeb/analytics.js) `master`
+
+[![build](https://img.shields.io/travis/YouMeb/analytics.js/development.svg)](https://travis-ci.org/YouMeb/analytics.js) [![Coverage Status](https://img.shields.io/coveralls/YouMeb/analytics.js/development.svg)](https://coveralls.io/r/YouMeb/analytics.js) `development`
 
 urAD 追蹤程式碼
 
