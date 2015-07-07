@@ -25,6 +25,16 @@ module.exports = function (config) {
         reporter: 'html',
         ui: 'bdd'
       }
+    },
+
+    reporters: [
+      'coverage',
+      'coveralls'
+    ],
+
+    coverageReporter: {
+      type: 'lcov',
+      dir: '../coverage'
     }
   });
 };

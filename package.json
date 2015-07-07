@@ -19,6 +19,8 @@
     "json3": "^3.3.2",
     "karma": "^0.12.36",
     "karma-chrome-launcher": "^0.1.12",
+    "karma-coverage": "^0.4.2",
+    "karma-coveralls": "^1.1.0",
     "karma-expect": "^1.1.0",
     "karma-firefox-launcher": "^0.1.6",
     "karma-mocha": "^0.1.10",
