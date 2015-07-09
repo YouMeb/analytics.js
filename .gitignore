@@ -6,3 +6,4 @@ dependencies.mk
 .eslintrc
 .DS_Store
 test/index.js
+coverage

@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = function (config) {
   var customLaunchers = singleRun({
     sl_chrome_26: {
@@ -48,8 +50,21 @@ module.exports = function (config) {
       recordVideo: true,
       platform: 'Windows 7',
       version: '8'
+    },
+    sl_ie_7: {
+      base: 'SauceLabs',
+      browserName: 'internet explorer',
+      recordVideo: true,
+      platform: 'Windows XP',
+      version: '7'
     }
   });
+
+  var getBrowsers = function () {
+    var browsers = Object.keys(customLaunchers);
+    browsers.unshift('PhantomJS');
+    return browsers;
+  };
 
   config.set({
     frameworks: [
@@ -69,17 +84,39 @@ module.exports = function (config) {
 
     customLaunchers: customLaunchers,
 
-    browsers: Object.keys(customLaunchers),
-
-    reporters: ['dots', 'saucelabs'],
+    browsers: getBrowsers(),
 
     singleRun: true,
 
     files: [
+      { pattern: '../lib/**/*.js', included: false },
       '../node_modules/json3/lib/json3.js',
       '../node_modules/jquery/dist/jquery.js',
-      '../build/test/index.js'
-    ]
+      '../test/**/*.test.js'
+    ],
+
+    preprocessors: {
+      '../test/**/*.test.js': [ 'duo' ]
+    },
+
+    duo: {
+      root: '..',
+      plugins: [
+        [ 'duo-istanbul' ]
+      ]
+    },
+
+    reporters: [
+      'dots',
+      'saucelabs',
+      'coverage',
+      'coveralls'
+    ],
+
+    coverageReporter: {
+      type: 'lcov',
+      dir: path.resolve(__dirname, '../coverage')
+    }
   });
 };
 
