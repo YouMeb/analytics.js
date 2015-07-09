@@ -66,9 +66,6 @@ build/index.js: node_modules $(SRC)
 build/index.min.js: build/index.js
 	@$(UGLIFY) $< > $@
 
-build/test/index.js: node_modules test/index.js $(SRC) $(TEST)
-	@$(DUO) -s Analytics test/index.js
-
 #
 # Docs tasks.
 #
@@ -96,40 +93,40 @@ test/index.js: $(TEST_SRC)
 karma-start:
 	@$(KARMA) start karma/local.conf.js
 
-karma-run: build/test/index.js
+karma-run:
 	$(KARMA) run karma/local.conf.js
 
-test-chrome: build/test/index.js
+test-chrome:
 	@$(KARMA) start --single-run \
 		--browsers Chrome \
 		karma/local.conf.js
 
-test-chromecanary: build/test/index.js
+test-chromecanary:
 	@$(KARMA) start --single-run \
 		--browsers ChromeCanary \
 		karma/local.conf.js
 
-test-firefox: build/test/index.js
+test-firefox:
 	@$(KARMA) start --single-run \
 		--browsers Firefox \
 		karma/local.conf.js
 
-test-phantomjs: build/test/index.js
+test-phantomjs:
 	@$(KARMA) start --single-run \
 		--browsers PhantomJS \
 		karma/local.conf.js
 
-test-opera: build/test/index.js
+test-opera:
 	@$(KARMA) start --single-run \
 		--browsers Opera \
 		karma/local.conf.js
 
-test-safari: build/test/index.js
+test-safari:
 	@$(KARMA) start --single-run \
 		--browsers Safari \
 		karma/local.conf.js
 
-test-sauce: build/test/index.js
+test-sauce:
 	@$(KARMA) start karma/sauce.conf.js
 
 #

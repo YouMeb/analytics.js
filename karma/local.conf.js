@@ -15,9 +15,10 @@ module.exports = function (config) {
     ],
 
     files: [
+      { pattern: '../lib/**/*.js', included: false },
       '../node_modules/json3/lib/json3.js',
       '../node_modules/jquery/dist/jquery.js',
-      '../build/test/index.js'
+      '../test/**/*.test.js'
     ],
 
     client: {
@@ -27,7 +28,19 @@ module.exports = function (config) {
       }
     },
 
+    preprocessors: {
+      '../test/**/*.test.js': [ 'duo' ]
+    },
+
+    duo: {
+      root: '..',
+      plugins: [
+        [ 'duo-istanbul' ]
+      ]
+    },
+
     reporters: [
+      'progress',
       'coverage',
       'coveralls'
     ],
