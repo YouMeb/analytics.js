@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = function (config) {
   var customLaunchers = singleRun({
     sl_chrome_26: {
@@ -113,7 +115,7 @@ module.exports = function (config) {
 
     coverageReporter: {
       type: 'lcov',
-      dir: '../coverage'
+      dir: path.resolve(__dirname, '../coverage')
     }
   });
 };
