@@ -38,5 +38,18 @@ $ make
 ### 發布新版本
 
 ```bash
+# 這個指令會 build 新的 JavaScript 檔案並上傳到 s3
+#
+# aws account: urad-old
+# aws region: ap-southeast-1
+# aws s3 bucket: urad-tracking
+#
+# 網址 https://s3-ap-southeast-1.amazonaws.com/urad-tracking/release-<version_number>.js
 $ make release
 ```
+
+## 其他文件
+
+* [使用方式](https://github.com/YouMeb/analytics.js/wiki/Quick-Start)
+* [Plugins](https://github.com/YouMeb/analytics.js/wiki/Plugins)
+* [使用者資料欄位](https://github.com/YouMeb/analytics.js/wiki/%E4%BD%BF%E7%94%A8%E8%80%85%E8%B3%87%E6%96%99%E6%AC%84%E4%BD%8D)
