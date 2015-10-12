@@ -123,6 +123,5 @@ localStorage 同步：[`lib/cookie`](https://github.com/YouMeb/analytics.js/tree
 ## 其他文件
 
 * [正是環境](https://bitbucket.org/uradwebtracking/doc/src/86522cc12ebf)
-* [使用方式](https://github.com/YouMeb/analytics.js/wiki/Quick-Start)
 * [Plugins](https://github.com/YouMeb/analytics.js/wiki/Plugins)
 * [使用者資料欄位](https://github.com/YouMeb/analytics.js/wiki/%E4%BD%BF%E7%94%A8%E8%80%85%E8%B3%87%E6%96%99%E6%AC%84%E4%BD%8D)
