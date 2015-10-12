@@ -50,6 +50,36 @@ $ make
 $ make release
 ```
 
+## 快速安裝
+
+```javascript
+var analytics = Analytics({ site: '網站ID，由 urAD 產生' });
+
+analytics.init();
+
+analytics.ready(function () {
+  // ...
+});
+```
+
+### 使用 Plugin
+
+```javascript
+var analytics = Analytics({ site: '...' })
+  .use('google-analytics', { trackingID: 'UA-XXXXXXXX-X' })
+  .init();
+
+analytics.ready(function () {
+  // ...  
+});
+```
+
+### 送出追蹤資料
+
+```javascript
+analytics.track('事件名稱', '事件資料');
+```
+
 ## 主要運作機制
 
 analytics.js 主要分成幾個部分：
